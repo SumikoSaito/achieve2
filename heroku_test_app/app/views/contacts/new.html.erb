@@ -1,0 +1,30 @@
+<%= form_with(model: @contact, local: true) do |form| %>
+
+<%= link_to 'ブログ一覧画面にもどる', blogs_path %>
+
+<% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2>入力内容に問題があります。</h2>
+      <ul>
+
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="contact_info">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="contact_info">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <div class="contact_info">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
